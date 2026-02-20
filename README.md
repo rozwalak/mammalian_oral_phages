@@ -21,6 +21,7 @@ Next, using 1-extract_genomad.sh, we combined data to:
 ### 2. Genome quality control
 
 Phage genome quality control was estimated using ([CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/)) v1.0.1 and 1.5 db version
+
 script: 2-run_checkv.sh
 
 ```
