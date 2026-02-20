@@ -19,3 +19,10 @@ Next, using 1-extract_genomad.sh, we combined data to:
 -all_mammalian_oral_plasmid_summary.tsv
 
 ### 2. Genome quality control
+
+Phage genome quality control was estimated using ([CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/)) v1.0.1 and 1.5 db version
+script: 2-run_checkv.sh
+
+```
+checkv end_to_end all_mammalian_oral_phages.fna genome_quality_checkv -d DBv1.5 -t 16
+```
