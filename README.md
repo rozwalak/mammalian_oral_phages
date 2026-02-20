@@ -2,7 +2,7 @@
 
 ### 1. Phage and plasmid identification
 
-Phage and plasmid sequences were identified using ([geNomad](https://github.com/apcamargo/genomad)) v1.11.2 
+Phage and plasmid sequences were identified among 490 mammalian dental calculus and environmental control metagenomes using ([geNomad](https://github.com/apcamargo/genomad)) v1.11.2 
 
 scripts: 1-run_genomad.sh + 1-submit_run_genomad.sh executing:
 ```
