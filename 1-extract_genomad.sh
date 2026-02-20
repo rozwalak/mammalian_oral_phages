@@ -8,14 +8,17 @@ OUTPUT_DIR="/home/li69pej/animal_dental_calc/data_for_phage_analysis/phage_predi
 VIRUS_FNA="${OUTPUT_DIR}/all_mammalian_oral_phages.fna"
 PLASMID_FNA="${OUTPUT_DIR}/all_mammalian_oral_plasmids.fna"
 VIRUS_TSV="${OUTPUT_DIR}/all_mammalian_oral_virus_summary.tsv"
+PLASMID_TSV="${OUTPUT_DIR}/all_mammalian_oral_plasmid_summary.tsv"
 
 # Clear/init output files
 > "$VIRUS_FNA"
 > "$PLASMID_FNA"
 > "$VIRUS_TSV"
+> "$PLASMID_TSV"
 
-# Write header for merged TSV (from first file found)
-HEADER_WRITTEN=false
+# Header flags
+VIRUS_HEADER_WRITTEN=false
+PLASMID_HEADER_WRITTEN=false
 
 # Loop over each sample subfolder
 for SAMPLE_DIR in "${INPUT_DIR}"/*/; do
@@ -23,7 +26,6 @@ for SAMPLE_DIR in "${INPUT_DIR}"/*/; do
 
     SUMMARY_DIR="${SAMPLE_DIR}${SAMPLE}_final_contigs_summary"
 
-    # Check summary dir exists
     if [ ! -d "$SUMMARY_DIR" ]; then
         echo "WARNING: No summary dir found for $SAMPLE, skipping."
         continue
@@ -32,10 +34,10 @@ for SAMPLE_DIR in "${INPUT_DIR}"/*/; do
     VIRUS_FNA_IN="${SUMMARY_DIR}/${SAMPLE}_final_contigs_virus.fna"
     PLASMID_FNA_IN="${SUMMARY_DIR}/${SAMPLE}_final_contigs_plasmid.fna"
     VIRUS_TSV_IN="${SUMMARY_DIR}/${SAMPLE}_final_contigs_virus_summary.tsv"
+    PLASMID_TSV_IN="${SUMMARY_DIR}/${SAMPLE}_final_contigs_plasmid_summary.tsv"
 
     # --- Process virus FASTA ---
     if [ -f "$VIRUS_FNA_IN" ]; then
-        # Add sample name to contig headers, then append
         awk -v sample="$SAMPLE" '
             /^>/ { print ">" sample "_" substr($0, 2) }
             !/^>/ { print }
@@ -58,12 +60,10 @@ for SAMPLE_DIR in "${INPUT_DIR}"/*/; do
 
     # --- Process virus summary TSV ---
     if [ -f "$VIRUS_TSV_IN" ]; then
-        if [ "$HEADER_WRITTEN" = false ]; then
-            # Write header line
+        if [ "$VIRUS_HEADER_WRITTEN" = false ]; then
             head -n 1 "$VIRUS_TSV_IN" >> "$VIRUS_TSV"
-            HEADER_WRITTEN=true
+            VIRUS_HEADER_WRITTEN=true
         fi
-        # Skip header, prepend sample name to seq_name column
         tail -n +2 "$VIRUS_TSV_IN" | awk -v sample="$SAMPLE" '
             BEGIN { OFS="\t" }
             NF > 0 {
@@ -76,10 +76,29 @@ for SAMPLE_DIR in "${INPUT_DIR}"/*/; do
         echo "  WARNING: No virus TSV for $SAMPLE"
     fi
 
+    # --- Process plasmid summary TSV ---
+    if [ -f "$PLASMID_TSV_IN" ]; then
+        if [ "$PLASMID_HEADER_WRITTEN" = false ]; then
+            head -n 1 "$PLASMID_TSV_IN" >> "$PLASMID_TSV"
+            PLASMID_HEADER_WRITTEN=true
+        fi
+        tail -n +2 "$PLASMID_TSV_IN" | awk -v sample="$SAMPLE" '
+            BEGIN { OFS="\t" }
+            NF > 0 {
+                $1 = sample "_" $1
+                print
+            }
+        ' >> "$PLASMID_TSV"
+        echo "  Processed plasmid TSV: $SAMPLE"
+    else
+        echo "  WARNING: No plasmid TSV for $SAMPLE"
+    fi
+
 done
 
 echo ""
 echo "Done!"
-echo "Virus FASTA:   $VIRUS_FNA"
-echo "Plasmid FASTA: $PLASMID_FNA"
-echo "Virus TSV:     $VIRUS_TSV"
+echo "Virus FASTA:    $VIRUS_FNA"
+echo "Plasmid FASTA:  $PLASMID_FNA"
+echo "Virus TSV:      $VIRUS_TSV"
+echo "Plasmid TSV:    $PLASMID_TSV"
