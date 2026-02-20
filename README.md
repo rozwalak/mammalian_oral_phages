@@ -16,3 +16,6 @@ Next, using 1-extract_genomad.sh, we combined data to:
 
 -all_mammalian_oral_virus_summary.tsv
 
+-all_mammalian_oral_plasmid_summary.tsv
+
+### 2. Genome quality control
