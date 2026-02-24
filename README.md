@@ -48,6 +48,18 @@ viral operational taxonomic unit (vOTU) is a species-like group of sequences def
 
 According to the recommendation of the International Committee on Taxonomy of Viruses (ICTV) Subcommittee ([Turner et al.,2021](https://www.mdpi.com/1999-4915/13/3/506)), 70% nucleotide identity of the full genome length (tANI) is the cut-off for genera. Due to the fragmented nature of our phage genomes, we applied 70% ANI over 85% alignment fraction to cluster sequences into genus-like groups.
 
+Genomes (mammalian_oral_phages.fna) were clustered using ([Vclust](https://github.com/refresh-bio/vclust)) v.1.3.1 implemented in script 3-run_vclust.sh
+
+-species_mammalian_oral_phages.tsv (n clusters = 929)
+
+-genera_mammalian_oral_phages.tsv (n clusters = 886)
+
+### 4. Genome clustering to family-like groups (gene-sharing network)
+
+
+
+
+
 
 
 
