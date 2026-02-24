@@ -38,3 +38,7 @@ CheckV genome summary:
 -Low quality (n = 88,719)
 
 -Not determined (n = 31,892)
+
+Next, medium+ quality genomes (n = 1212) were extracted to mammalian_oral_phages.fna using 2-extract_medium_high_quality_genomes.sh
+
+### 2. Genome clustering to vOTUs (species-like groups)
