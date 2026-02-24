@@ -27,3 +27,14 @@ script: 2-run_checkv.sh
 ```
 checkv end_to_end all_mammalian_oral_phages.fna genome_quality_checkv -d DBv1.5 -t 16
 ```
+CheckV genome summary: 
+
+-Complete (n = 85)
+
+-High quality (n = 210)
+
+-Medium quality (n = 917)
+
+-Low quality (n = 88,719)
+
+-Not determined (n = 31,892)
