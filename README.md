@@ -41,4 +41,15 @@ CheckV genome summary:
 
 Next, medium+ quality genomes (n = 1212) were extracted to mammalian_oral_phages.fna using 2-extract_medium_high_quality_genomes.sh
 
-### 2. Genome clustering to vOTUs (species-like groups)
+### 3. Genome clustering to vOTUs (species-like and genus-like groups)
+
+According to Minimum Information about an Uncultivated Virus Genome ([MIUViG](https://www.nature.com/articles/nbt.4306)) 
+viral operational taxonomic unit (vOTU) is a species-like group of sequences defined based on thresholds of 95% average nucleotide identity over 85% alignment fraction (relative to the shorter sequence).
+
+According to the recommendation of the International Committee on Taxonomy of Viruses (ICTV) Subcommittee ([Turner et al.,2021](https://www.mdpi.com/1999-4915/13/3/506)), 70% nucleotide identity of the full genome length (tANI) is the cut-off for genera. Due to the fragmented nature of our phage genomes, we applied 70% ANI over 85% alignment fraction to cluster sequences into genus-like groups.
+
+
+
+
+
+
