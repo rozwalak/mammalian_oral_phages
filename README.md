@@ -66,6 +66,10 @@ vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_pha
 
 To better understand the novelty of phage genomes in dental calculus, we clustered them with XXX genomes from MetaVR and XXX from the VIRE database. 
 
+### 6. Host prediction
+
+### 7. Summarizing results
+
 
 
 
