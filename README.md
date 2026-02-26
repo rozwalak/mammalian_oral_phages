@@ -62,7 +62,9 @@ For taxonomic classification and clustering to family-like groups, we used ([vCo
 vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_phages_vcontact3 --threads 16 --exports cytoscape --db-path path/to/RefSeq230
 ```
 
+### 5. Genome clustering with MetaVR and VIRE
 
+To better understand the novelty of phage genomes in dental calculus, we clustered them with XXX genomes from MetaVR and XXX from the VIRE database. 
 
 
 
