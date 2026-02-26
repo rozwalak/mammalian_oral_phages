@@ -56,7 +56,11 @@ Genomes (mammalian_oral_phages.fna) were clustered using ([Vclust](https://githu
 
 ### 4. Genome clustering to family-like groups (gene-sharing network)
 
+For taxonomic classification and clustering to family-like groups, we used vContact3 implemented in the script 4-run_vcontact3.sh that executes the following command: 
 
+```
+vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_phages_vcontact3 --threads 16 --exports cytoscape --db-path path/to/RefSeq230
+```
 
 
 
