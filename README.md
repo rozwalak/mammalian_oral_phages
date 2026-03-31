@@ -73,9 +73,11 @@ Total input sequences: 1147
 
 To better understand the novelty of phage genomes in dental calculus, we clustered them with XXX genomes from MetaVR and XXX from the VIRE database. 
 
-### 6. Host prediction
+### 6. Functional annotation
 
-### 7. Summarizing results
+### 7. Host prediction
+
+### 8. Summarizing results
 
 
 
