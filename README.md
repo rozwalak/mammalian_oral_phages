@@ -59,15 +59,15 @@ Genomes (mammalian_oral_phages.fna) were clustered using ([Vclust](https://githu
 For taxonomic classification and clustering to family-like groups, we used ([vContact3](https://vcontact3.readthedocs.io/en/latest/#)) implemented in the script 4-run_vcontact3.sh that executes the following command: 
 
 ```
-vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_phages_vcontact3 --threads 16 --exports cytoscape --db-path path/to/RefSeq230
+vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_phages_vcontact3 --threads 16 --exports cytoscape --db-path path/to/database --db-version 232
 ```
 Summary
 
-Total input sequences: 1147
+Total input sequences: 1159
 
-- 117 sequences (10.2%) belong to 12 KNOWN families (Naomviridae, Schitoviridae, Winoviridae, Autographiviridae, Peduoviridae, Casjensviridae, Orlajensenviridae, Aliceevansviridae, Rountreeviridae, Salasmaviridae, Inoviridae, Microviridae)
+- 241 sequences (20.8%) belong to 19 KNOWN families (Aliceevansviridae, Autonotataviridae|Autoscriptoviridae, Autotranscriptaviridae, Casjensviridae, Chimalliviridae, Fredfastierviridae, Inoviridae, Madridviridae, Microviridae, Naomviridae, Orlajensenviridae, Parvoviridae, Peduoviridae, Retroviridae, Rountreeviridae, Sarkviridae, Schitoviridae, Straboviridae, Winoviridae)
 
-- 1030 sequences (89.8%) belong to 283 NOVEL families
+- 918 sequences (79.2%) belong to 277 NOVEL families.
 
 ### 5. Genome clustering with MetaVR and VIRE
 
