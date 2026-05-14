@@ -2,7 +2,7 @@
 
 ### 1. Phage and plasmid identification
 
-Phage and plasmid sequences were identified among 490 mammalian dental calculus and environmental control metagenomes using ([geNomad](https://github.com/apcamargo/genomad)) v1.11.2 
+Phage and plasmid sequences were identified among 490 mammalian dental calculus and environmental control metagenomes using [geNomad](https://github.com/apcamargo/genomad) v1.11.2 
 
 scripts: 1-run_genomad.sh + 1-submit_run_genomad.sh executing:
 ```
@@ -20,7 +20,7 @@ Next, using 1-extract_genomad.sh, we combined data to:
 
 ### 2. Genome quality control
 
-Phage genome quality control was estimated using ([CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/)) v1.0.1 and 1.5 db version
+Phage genome quality control was estimated using [CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/) v1.0.1 and 1.5 db version
 
 script: 2-run_checkv.sh
 
@@ -48,7 +48,7 @@ viral operational taxonomic unit (vOTU) is a species-like group of sequences def
 
 According to the recommendation of the International Committee on Taxonomy of Viruses (ICTV) Subcommittee ([Turner et al.,2021](https://www.mdpi.com/1999-4915/13/3/506)), 70% nucleotide identity of the full genome length (tANI) is the cut-off for genera. Due to the fragmented nature of our phage genomes, we applied 70% ANI over 85% alignment fraction to cluster sequences into genus-like groups.
 
-Genomes (mammalian_oral_phages.fna) were clustered using ([Vclust](https://github.com/refresh-bio/vclust)) v.1.3.1 implemented in script 3-run_vclust.sh
+Genomes (mammalian_oral_phages.fna) were clustered using [Vclust](https://github.com/refresh-bio/vclust) v.1.3.1 implemented in script 3-run_vclust.sh
 
 - species_mammalian_oral_phages.tsv (n clusters = 929)
 
@@ -56,7 +56,7 @@ Genomes (mammalian_oral_phages.fna) were clustered using ([Vclust](https://githu
 
 ### 4. Genome clustering to family-like groups (gene-sharing network)
 
-For taxonomic classification and clustering to family-like groups, we used ([vContact3](https://vcontact3.readthedocs.io/en/latest/#)) implemented in the script 4-run_vcontact3.sh that executes the following command: 
+For taxonomic classification and clustering to family-like groups, we used [vContact3](https://vcontact3.readthedocs.io/en/latest/#) v3.2.0 implemented in the script 4-run_vcontact3.sh that executes the following command: 
 
 ```
 vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_phages_vcontact3 --threads 16 --exports cytoscape --db-path path/to/database --db-version 232
@@ -75,14 +75,15 @@ To better understand the novelty of 1159 phage genomes (representing 929 species
 
 We found that 882 (95%) of mammalian dental calculus vOTUs were not previously reported in a large databases representing currently known bacteriophage diversity.
 
-### 6. Functional annotation
+### 6. Host prediction
 
-### 7. Host prediction
+To predict potential hosts for phage genomes in the mammalian dental calculus dataset, we used [iPHoP](https://bitbucket.org/srouxjgi/iphop/src/main/) v1.4.2, which aggregates different sequence-based host prediction methods and infers hosts at the genus level.  
 
-### 8. Summarizing results
+```
+iphop predict --fa_file mammalian_oral_phages.fna --db_dir path/to/iphop_db/Jun_2025_pub_rw/ --out_dir iphop_mammalian_oral_phages/ 
+```
 
-
-
+Bacterial hosts were successfully predicted for 881 phage genomes (72%).
 
 
 
