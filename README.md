@@ -71,6 +71,8 @@ Total input sequences: 1159
 
 ### 5. Genome clustering with MetaVR and VIRE
 
+script: 5-run_vclust_databases.sh
+
 To better understand the novelty of 1159 phage genomes (representing 929 species) in dental calculus, we clustered them with 24 million genomes from MetaVR and 1.6 million from the VIRE database. 
 
 We found that 882 (95%) of mammalian dental calculus vOTUs were not previously reported in a large databases representing currently known bacteriophage diversity.
