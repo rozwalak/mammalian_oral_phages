@@ -54,6 +54,16 @@ Genomes (mammalian_oral_phages.fna) were clustered using [Vclust](https://github
 
 - genera_mammalian_oral_phages.tsv (n clusters = 886)
 
+```
+vclust prefilter -i mammalian_oral_phages.fna -o fltr.txt --min-ident 0.70
+
+vclust align -i mammalian_oral_phages.fna -o ani.tsv --filter fltr.txt
+
+vclust cluster -i ani.tsv -o species_mammalian_oral_phages.tsv --ids ani.ids.tsv --algorithm leiden --metric ani --ani 0.95 --qcov 0.85
+
+vclust cluster -i ani.tsv -o genera_mammalian_oral_phages.tsv --ids ani.ids.tsv --algorithm leiden --metric ani --ani 0.70 --qcov 0.85
+```
+
 ### 4. Genome clustering to family-like groups (gene-sharing network)
 
 script: 4-run_vcontact3.sh
