@@ -75,17 +75,19 @@ vcontact3 run --nucleotide mammalian_oral_phages.fna --output mammalian_oral_pha
 ```
 Summary
 
-Total input sequences: 1159
+Total input sequences: 1212
 
-- 241 sequences (20.8%) belong to 19 KNOWN families (Aliceevansviridae, Autonotataviridae|Autoscriptoviridae, Autotranscriptaviridae, Casjensviridae, Chimalliviridae, Fredfastierviridae, Inoviridae, Madridviridae, Microviridae, Naomviridae, Orlajensenviridae, Parvoviridae, Peduoviridae, Retroviridae, Rountreeviridae, Sarkviridae, Schitoviridae, Straboviridae, Winoviridae)
+- 233 sequences (19%) belong to 19 KNOWN families (Aliceevansviridae, Autonotataviridae|Autoscriptoviridae, Autotranscriptaviridae, Casjensviridae, Chimalliviridae, Fredfastierviridae, Inoviridae, Madridviridae, Microviridae, Naomviridae, Orlajensenviridae, Parvoviridae, Peduoviridae, Retroviridae, Rountreeviridae, Sarkviridae, Schitoviridae, Straboviridae, Winoviridae)
 
-- 918 sequences (79.2%) belong to 277 NOVEL families.
+- 777 sequences (64%) belong to 277 NOVEL families.
+
+- 202 sequences (17%) are singletons
 
 ### 5. Genome clustering with MetaVR and VIRE
 
 script: 5-run_vclust_databases.sh
 
-To better understand the novelty of 1159 phage genomes (representing 929 species) in dental calculus, we clustered them with 24 million genomes from MetaVR and 1.6 million from the VIRE database. 
+To better understand the novelty of 1212 phage genomes (representing 929 species) in dental calculus, we clustered them with 24 million genomes from MetaVR and 1.6 million from the VIRE database. 
 
 We found that 882 (95%) of mammalian dental calculus vOTUs were not previously reported in a large databases representing currently known bacteriophage diversity.
 
@@ -97,7 +99,7 @@ To predict potential hosts for phage genomes in the mammalian dental calculus da
 iphop predict --fa_file mammalian_oral_phages.fna --db_dir path/to/iphop_db/Jun_2025_pub_rw/ --out_dir iphop_mammalian_oral_phages/ 
 ```
 
-Bacterial hosts were successfully predicted for 881 phage genomes (72%).
+Bacterial hosts were successfully predicted for 881 phage genomes (73%).
 
 
 
